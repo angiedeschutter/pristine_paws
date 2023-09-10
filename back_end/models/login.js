@@ -19,23 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    first_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-  },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-  },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false
-  },
-    password:{
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-   }, {
+    first_name: DataTypes.STRING,
+    last_name: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
+  }, {
     sequelize,
     modelName: 'Login',
     tableName: 'login'
