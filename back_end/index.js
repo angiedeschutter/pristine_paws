@@ -25,11 +25,10 @@ app.get('/', (req, res) => {
 
 
 // Controllers
-const loginController = require('./controllers/login_controller')
-app.use('/login', loginController)
 
+app.use('/login', require('./controllers/login_controller'))
 app.use('/service', require('./controllers/service_controller'))
-
+app.use('/auth', require('./controllers/authentication'))
 
 
 
