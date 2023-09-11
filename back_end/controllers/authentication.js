@@ -6,22 +6,7 @@ const jwt = require('json-web-token')
 const { Login } = db
 
 auth.get('/profile', async (req, res) => {
-    try {
-        const [authenticationMethod, token] = req.headers.authorization.split(' ')
-
-        if (authenticationMethod == 'Bearer') {
-            const result = await jwt.decode(process.env.JWT_SECRET, token)
-            const { id } = result.value
-            let user = await User.findOne({
-                where: {
-                    userId: id
-                }
-            })
-            res.json(user)
-        }
-    } catch {
-        res.json(null)
-    }
+    res.json(req.currentUser)
 })
 
 auth.post('/', async (req, res) => {
@@ -35,7 +20,7 @@ auth.post('/', async (req, res) => {
             message: `Could not find a user with the provided username and password`
         })
     } else {
-        const results = await jwt.encode(process.env.JWT_SECRET, { id: user.userId })
+        const results = await jwt.encode(process.env.SECRET_TOKEN, { id: user.userId })
         res.json({ user: user, token: results.value })
     }
 })

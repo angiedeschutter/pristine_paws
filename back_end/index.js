@@ -6,12 +6,13 @@ const app = express()
 const cors = require('cors')
 //const path = require("path")
 const { Sequelize } = require('sequelize')
+const defineCurrentUser = require('./middleware/defineCurrentUser')
 
 //middleware
 app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: false }))
-
+app.use(defineCurrentUser)
 // SEQUELIZE CONNECTION
 const sequelize = new Sequelize(process.env.PG_URI)
 
