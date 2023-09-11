@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       //  Login.hasMany(Service, {
      //   foreignKey: 'user_id',
     //    as: 'service'
-    //  })
+     // })
     }
   }
   Login.init({

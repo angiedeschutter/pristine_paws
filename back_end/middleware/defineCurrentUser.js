@@ -1,7 +1,7 @@
 const db = require("../models")
 const jwt = require('json-web-token')
 
-const { User } = db;
+const { Login } = db;
 
 async function defineCurrentUser(req, res, next){
     try {
@@ -9,7 +9,7 @@ async function defineCurrentUser(req, res, next){
         if(method == 'Bearer'){
             const result = await jwt.decode('asdljasldkfjs', token)
             const { id } = result.value
-            let user = await User.findOne({ 
+            let user = await Login.findOne({ 
                 where: {
                     userId: id
                 }

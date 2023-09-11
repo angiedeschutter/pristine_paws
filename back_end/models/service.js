@@ -6,12 +6,12 @@ module.exports = (sequelize, DataTypes) => {
   class Service extends Model {
 
     static associate({Login}) {
-     // Service.belongsTo(Login,{
-     //   foreignKey: "user_id",
-        //as: "service"
+    //  Service.belongsTo(Login,{
+   //    foreignKey: "user_id",
+    //    as: "service"
      // })
     }
-  }
+ }
   Service.init({
     service_id:{
       type: DataTypes.INTEGER,

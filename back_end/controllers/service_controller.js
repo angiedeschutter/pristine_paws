@@ -45,7 +45,7 @@ service.post('/', async (req, res) => {
     try {
         const newAppt = await Service.create(req.body)
         res.status(200).json({
-            message: 'Successfully created a new destination',
+            message: 'Successfully created a new appointment',
             data: newAppt
         })
     } catch (Error) {
@@ -54,7 +54,7 @@ service.post('/', async (req, res) => {
 })
 
 // UPDATE AN APPOINTMENT
-service.put('/:service_id', async (req, res) => {
+service.put('/service/:service_id', async (req, res) => {
     try {
         const updatedService = await Service.update(req.body, {
             where: {
@@ -70,7 +70,7 @@ service.put('/:service_id', async (req, res) => {
 })
 
 // DELETE AN APPOINTMENT
-service.delete('/:service_id', async (req, res) => {
+service.delete('/service/:service_id', async (req, res) => {
     try {
         const deleteService = await Service.destroy({
             where: {
