@@ -11,6 +11,7 @@ import SignUp from './Components/SignUp'
 import AddService from './Components/AddService'
 import CurrentUserProvider from './contexts/CurrentUser'
 import Account from './Components/Account'
+import Edit from './Components/Edit'
 
 function App() {
   //Sets document title
@@ -31,6 +32,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/addservice' element={<AddService />} />
           <Route path='/account' element={<Account />} />
+          <Route path='/edit/:service_id' element={<Edit />} />
         </Routes>
       </Router>
       <Footer/>

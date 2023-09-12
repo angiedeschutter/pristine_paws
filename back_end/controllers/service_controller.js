@@ -54,7 +54,7 @@ service.post('/', async (req, res) => {
 })
 
 // UPDATE AN APPOINTMENT
-service.put('/service/:service_id', async (req, res) => {
+service.put('/appointment/:service_id', async (req, res) => {
     try {
         const updatedService = await Service.update(req.body, {
             where: {
@@ -70,7 +70,7 @@ service.put('/service/:service_id', async (req, res) => {
 })
 
 // DELETE AN APPOINTMENT
-service.delete('/service/:service_id', async (req, res) => {
+service.delete('/appointment/:service_id', async (req, res) => {
     try {
         const deleteService = await Service.destroy({
             where: {
@@ -79,7 +79,7 @@ service.delete('/service/:service_id', async (req, res) => {
         })
 
         res.status(200).json({
-            message: `Successfully deleted Appointment`
+            message: `Successfully deleted Appointment ${deleteService}`
         })
     } catch (Error) {
         res.status(500).json(Error)

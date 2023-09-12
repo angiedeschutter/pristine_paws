@@ -23,19 +23,11 @@ function Account() {
         getServices()
     }, [])
 
-        //DELETE APPOINTMENT FUNCTION
-        const deleteAppt = async () => {
-            try {
-                await fetch(`http://localhost:4000/service/${services.service_id}`,
-                    { method: "DELETE" })
-                navigate('/account') //redirects back to account
-            } catch (Error) {
-                console.log(Error)
-            }
-        }
-  
+        
         //TAKES THE SERVICES FROM DB ABOVE AND PUTS IT INTO A TABLE
         const getServiceList = services.map((services, i) => {
+            
+            
             return (
                 <tr key={i} className="tb">
                     <td className="tb">{services.dog_name}</td>
@@ -44,18 +36,15 @@ function Account() {
                     <td className="tb">{services.pack}</td>
                     <td className="tb">{services.date}</td>
                     <td className="tb">{services.time}</td>
-                    <td className="tb"><Link ><button>EDIT</button></Link></td>
-                    <td className="tb" onClick={deleteAppt}><button >DELETE</button></td>
+                    <td className="tb"><Link to={`/edit/${services.service_id}`} ><button>EDIT</button></Link></td>
                 </tr>)
-        })   
-    
-      
-      
+        })       
     
     return (
         <>
             <h1>Scheduled Services</h1>
             <table>
+                <thead>
                 <tr className="tb">
                     <th className="tb">Pet</th>
                     <th className="tb">Breed</th>
@@ -64,9 +53,11 @@ function Account() {
                     <th className="tb">Date</th>
                     <th className="tb">Time</th>
                     <th className="tb">Edit</th>
-                    <th className="tb">Delete</th>
                 </tr>
-                {getServiceList}
+                </thead>           
+                <tbody>
+                    {getServiceList}
+                </tbody>
             </table>
             
             <Link to ={`/addservice`}><p>Add new Appointment</p></Link>

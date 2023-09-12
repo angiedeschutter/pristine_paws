@@ -32,7 +32,7 @@ function Login() {
 
     if (response.status === 200) {
         setCurrentUser(data.user)
-        console.log(data.token)
+        //console.log(data.token)
         localStorage.setItem('token', data.token)
         navigate(`/account`)
     } else {
