@@ -19,5 +19,5 @@ async function puppy(){
     await wait(2000)
     appendlogo(closed)
 }
-//This function repeats the swimmerAnime function every second
+//This function repeats the animation function every second
 setInterval(puppy,4000) 

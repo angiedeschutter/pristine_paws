@@ -34,20 +34,20 @@ function AddService() {
     return (
         <>
             <h1> Chose the services for your dog</h1>
-            <form method='POST' onSubmit={newService}>
-                <div>
-                    <label htmlFor='dogName'> Dog's Name</label>
+            <form method='POST' onSubmit={newService} className="apptForm">
+                <div >
+                    <label htmlFor='dogName' className="form"> Dog's Name</label>
                     <input id='dogName' name='dogName' value={dog_name}  onChange={(e) => setDog_name(e.target.value) } required></input>
                 </div>
                 <div>
-                    <label htmlFor='breed'> Breed</label>
+                    <label htmlFor='breed' className="form"> Breed</label>
                     <input id='breed' name='breed' value={breed}  onChange={(e) => setBreed(e.target.value)} required></input>
                 </div>
                 <div>
-                    <label for="size">Dog Size:</label>
+                    <label htmlFor="size" className="form">Dog Size:</label>
                     <select name="size" id="size" value={size}  onChange={(e) => setSize(e.target.value)} required>
-                        <option value='' selected disabled hidden>Select Your Dog's Weight Range</option>
-                        <option value="X-Ssmall">Less than 10 lbs</option>
+                        <option value='' selected disabled hidden>Select Dog's Weight Range</option>
+                        <option value="X-Small">Less than 10 lbs</option>
                         <option value="Small">Less than 10 lbs</option>
                         <option value="Medium">11-25 lbs</option>
                         <option value="Large">26-50 lbs</option>
@@ -55,7 +55,7 @@ function AddService() {
                     </select>
                 </div>
                 <div>
-                    <label for="package">Grooming Package:</label>
+                    <label htmlFor="package" className="form">Grooming Package:</label>
                     <select name="pack" id="pack" value={pack}  onChange={(e) => setPack(e.target.value)} required>
                         <option value='' selected disabled hidden>Select a Package</option>
                         <option value="Basic Package">Basic Wash</option>
@@ -65,11 +65,11 @@ function AddService() {
                     </select>
                 </div>
                 <div>
-                    <label for="appointment">Scheduled date:</label>
+                    <label htmlFor="appointment" className="form">Scheduled date:</label>
                     <input type="date" id="start" name="appointment" value={date}  onChange={(e) => setDate(e.target.value)} required/>
                 </div>
                 <div>
-                    <label for="time">Appointment Time:</label>
+                    <label htmlFor="time" className="form">Appointment Time:</label>
                     <select name="time" id="time" value={time}  onChange={(e) => setTime(e.target.value)} required>
                         <option value='' selected disabled hidden>Select a Time</option>
                         <option value="9:00am">9:00am</option>
@@ -82,7 +82,7 @@ function AddService() {
                         <option value="4:00pm">4:00pm</option>
                     </select>
                 </div>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" className="button"/>
             </form>
         </>
     )

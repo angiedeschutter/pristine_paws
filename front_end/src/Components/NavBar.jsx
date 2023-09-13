@@ -1,7 +1,7 @@
 
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { CurrentUser } from '../contexts/CurrentUser'
-import {useContext, useEffect} from 'react'
+import {useContext} from 'react'
 
 export default function NavigationBar() {
 
@@ -20,7 +20,7 @@ export default function NavigationBar() {
         login = (
             <>
                  <Nav.Link href="account">{currentUser.first_name} {currentUser.last_name}'s Account</Nav.Link>
-                 <button onClick={logout}>Log Out</button>
+                 <button className='logout-Button' onClick={logout}>Log Out</button>
             </>
         )
     }
@@ -34,7 +34,6 @@ export default function NavigationBar() {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="about">About</Nav.Link>
                         <Nav.Link href="services">Services</Nav.Link>
-                        
                         {login}
                     </Nav>
                 </Container>

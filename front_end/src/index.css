@@ -35,10 +35,17 @@ code {
 #about{
   text-align: left;
   display: flex;
+  background-color: rgb(195, 228, 255);
+  border-color: black;
+  border: solid;
 }
 
 ul{
   list-style-type: none;
+}
+
+li{
+  font-size: 20px;
 }
 
 .box{
@@ -47,6 +54,8 @@ ul{
   display: flex;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: rgb(247, 255, 175);
+  border-radius: 20px;
 }
 
 .services{
@@ -60,5 +69,71 @@ ul{
 
 .tb {
   border:1px solid;
+  font-size: 25px;
+  padding: 25px;
+  
 }
 
+.needAccount{
+  margin: 50px;;
+}
+
+.lb1{
+  font-size: 20px;
+}
+
+.login{
+  border: solid;
+  border-radius: 25px;
+  width: 270px;
+  margin:auto;
+  background-color: rgb(197, 233, 243);
+  padding: 10px;
+}
+
+.inputs{
+  padding: 20px;
+}
+
+.button{
+  background-color: black;
+  color:white;
+  border-radius: 10px;
+}
+
+img{
+  border-radius: 20px; 
+}
+
+.logout-Button{
+   border:none;
+   background-color:white;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+  padding:25px;
+}
+
+#newAppt{
+  font-size: 25px;
+}
+
+.form{
+  padding:5px;
+  
+}
+
+.apptForm{
+  border: solid;
+  border-radius: 25px;
+  width: 300px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 20px;
+  margin-top:20px;
+  background-color: rgb(197, 233, 243);
+  padding: 5px;
+  font-size:20px;
+}

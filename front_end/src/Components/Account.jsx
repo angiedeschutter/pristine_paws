@@ -1,13 +1,11 @@
-import { Link, useParams, useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useState, useEffect, useContext } from 'react'
 import { CurrentUser } from '../contexts/CurrentUser'
 
 function Account() {
-    const navigate=useNavigate()
     const [services, setService] = useState([])
     const { currentUser } = useContext(CurrentUser)
     
-
     //GET THE SERVICES FROM THE DB WHERE ALL ARE FORM THE SAME USER_ID
     const getServices = async () => {
         try {
@@ -21,13 +19,11 @@ function Account() {
     
     useEffect(() => {
         getServices()
-    }, [])
+    }, )
 
         
         //TAKES THE SERVICES FROM DB ABOVE AND PUTS IT INTO A TABLE
         const getServiceList = services.map((services, i) => {
-            
-            
             return (
                 <tr key={i} className="tb">
                     <td className="tb">{services.dog_name}</td>
@@ -36,17 +32,18 @@ function Account() {
                     <td className="tb">{services.pack}</td>
                     <td className="tb">{services.date}</td>
                     <td className="tb">{services.time}</td>
-                    <td className="tb"><Link to={`/edit/${services.service_id}`} ><button>EDIT</button></Link></td>
+                    <td className="tb"><Link to={`/edit/${services.service_id}`} ><button><i className="fa-solid fa-pen-to-square"></i> EDIT</button></Link></td>
                 </tr>)
         })       
     
+        
     return (
         <>
             <h1>Scheduled Services</h1>
             <table>
                 <thead>
                 <tr className="tb">
-                    <th className="tb">Pet</th>
+                    <th className="tb">Pet Name</th>
                     <th className="tb">Breed</th>
                     <th className="tb">Size</th>
                     <th className="tb">Service Package</th>
@@ -60,7 +57,7 @@ function Account() {
                 </tbody>
             </table>
             
-            <Link to ={`/addservice`}><p>Add new Appointment</p></Link>
+            <Link to ={`/addservice`}><p id="newAppt"><i className="fa-solid fa-plus"></i> Add New Appointment</p></Link>
             
         </>
     );
